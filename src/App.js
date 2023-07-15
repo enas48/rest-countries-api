@@ -2,15 +2,21 @@
 import './App.css';
 import { Outlet,Link  , useLoaderData,} from "react-router-dom";
 import data from './data.json';
+import { ThemeContext } from './context/themeContext';
+import { useContext } from 'react';
+import Header from './components/header';
+
 function App() {
+  const {isDarkTheme}=useContext(ThemeContext)
   const { countries } = useLoaderData();
   console.log(countries)
   return (
     <>
      
-      <div>
-
-      {countries.length ? (
+      <div className={isDarkTheme===true?"app dark":"app"}>
+      <Header/>
+      <div className='px-[4rem]'>
+   {countries.length ? (
             <ul>
               {countries.map((country) => (
                 <li key={country.name}>
@@ -26,6 +32,9 @@ function App() {
             </p>
           )}
        
+      </div>
+
+   
 
       </div>
       <div id="detail">

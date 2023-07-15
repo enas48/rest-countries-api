@@ -1,0 +1,32 @@
+:root{
+    --bg-light:hsl(0, 0%, 98%);
+    --bg-dark:hsl(207, 26%, 17%);
+    --text-light: hsl(200, 15%, 8%);
+    --text-dark: hsl(0, 0%, 100%);
+    --transition:0.3s;
+
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: all var(--transition);
+}
+.app{
+    background: var(--bg-light);
+    color: var(--text-light);
+    min-height: 100vh;
+  
+}
+.app.dark{
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+/* .button{
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+.button.dark{
+    background: var(--bg-light);
+    color: var(--text-dark);
+} */

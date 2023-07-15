@@ -1,38 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App, { loader as rootLoader } from './App';
-import DetailPage, { loader as countryLoader } from './pages/detailsPage';
-import reportWebVitals from './reportWebVitals';
-import ErrorPage from './pages/errorPage';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App, { loader as rootLoader } from "./App";
+import DetailPage, { loader as countryLoader } from "./pages/detailsPage";
+import reportWebVitals from "./reportWebVitals";
+import ErrorPage from "./pages/errorPage";
+import ThemeProvider from "./context/themeContext";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
     loader: rootLoader,
-  }
-  ,
+  },
   {
     path: "details/:detailId",
     element: <DetailPage />,
     errorElement: <ErrorPage />,
-    loader: countryLoader
-
+    loader: countryLoader,
   },
 
-  ,
-
 ]);
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <ThemeProvider>
     <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

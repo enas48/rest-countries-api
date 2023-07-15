@@ -6,7 +6,7 @@ export default function DetailPage() {
     const { country } = useLoaderData();
     console.log(country)
     return (
-        <div id="detailsPage">
+        <div id="detailsPage" className="app">
 
             <Link to={`/`}>back</Link>
             <img src={country[0].flags?.png} alt=""/>
