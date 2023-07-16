@@ -8,20 +8,30 @@ import ErrorPage from "./pages/errorPage";
 import ThemeProvider from "./context/themeContext";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePage from "./pages/homePage";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
     loader: rootLoader,
-  },
-  {
-    path: "details/:detailId",
-    element: <DetailPage />,
-    errorElement: <ErrorPage />,
-    loader: countryLoader,
-  },
+    children:[
+      {
+        path: "details/:detailId",
+        element: <DetailPage />,
+        errorElement: <ErrorPage />,
+        loader: countryLoader,
 
+      },
+      {
+        path: "/",
+        element: <HomePage />,
+        errorElement: <ErrorPage />,
+        loader: rootLoader,
+      },
+    ]
+  },
+  
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
