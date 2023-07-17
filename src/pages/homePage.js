@@ -12,13 +12,16 @@ export default function HomePage() {
 
     const onFilterCountry = (e) => {
         let region = e.target.id;
-        let filterd = countries.filter((country) => {
-            return country.region === region
-        })
-        setFilteredCountries(filterd)
+        if (region === 'all') {
+            setFilteredCountries(countries)
+        } else {
+            let filterd = countries.filter((country) => {
+                return country.region === region
+            })
+            setFilteredCountries(filterd)
+        }
     }
     const onCountrySearch = (value) => {
-        console.log(value)
         let filterd = countries.filter((c) => c.name.toLowerCase().includes(value.toLowerCase()));
         setFilteredCountries(filterd)
 
@@ -31,7 +34,7 @@ export default function HomePage() {
             </div>
             <div className="">
                 {filterCountries.length ? (
-                    <div className="flex  gap-10 flex-wrap justify-center">
+                    <div className="flex  gap-10 flex-wrap justify-between">
                         {filterCountries.map((country) => (
                             <CountryCard country={country} key={country.name} />
                         ))}

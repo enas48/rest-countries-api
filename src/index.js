@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
     loader: rootLoader,
-    children:[
+    children: [
       {
         path: "details/:detailId",
         element: <DetailPage />,
@@ -31,13 +31,13 @@ const router = createBrowserRouter([
       },
     ]
   },
-  
+
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </ThemeProvider>
   </React.StrictMode>
 );

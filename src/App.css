@@ -1,27 +1,45 @@
-:root{
-    --bg-light:#fafafa;
-    --bg-dark-blue:#2b3945;
-    --bg-dark:#202c37;
+:root {
+    --bg-light: #fafafa;
+    --bg-dark-blue: #2b3945;
+    --bg-dark: #202c37;
     --text-light: #111517;
     --text-dark: #ffffff;
-    --transition:0.1s;
+    --transition: 0.1s;
 
 }
-*{
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     transition: all ease-in-out var(--transition);
     font-family: 'Nunito Sans', sans-serif;
 }
-.app{
+
+body {
+    font-size: 18px;
+}
+
+.app {
     background: var(--bg-light);
     color: var(--text-light);
     min-height: 100vh;
- 
-  
+    padding-bottom: 1rem;
+
 }
-.app.dark{
+
+.app.dark {
     background: var(--bg-dark);
     color: var(--text-dark);
+}
+
+/*error page*/
+#error-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    justify-items: center;
+    gap: 20px;
 }
