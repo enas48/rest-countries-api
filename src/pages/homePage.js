@@ -4,11 +4,24 @@ import CountryCard from "../components/countryCard";
 import Search from "../components/search";
 import data from '../data.json';
 import Filter from "../components/filter";
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import Pagination from "../components/pagination";
+
+let PageSize = 10;
 
 export default function HomePage() {
     const { countries } = useLoaderData();
     let [filterCountries, setFilteredCountries] = useState(countries)
+
+    /*pagination*/
+    const [currentPage, setCurrentPage] = useState(1);
+    const currentData = useMemo(() => {
+        const firstPageIndex = (currentPage - 1) * PageSize;
+        const lastPageIndex = firstPageIndex + PageSize;
+        return filterCountries.slice(firstPageIndex, lastPageIndex);
+    }, [currentPage]);
+
+
 
     const onFilterCountry = (e) => {
         let region = e.target.id;
@@ -45,6 +58,13 @@ export default function HomePage() {
                     </p>
                 )}
             </div>
+            {/* <Pagination
+                className="pagination-bar"
+                currentPage={currentPage}
+                totalCount={data.length}
+                pageSize={PageSize}
+                onPageChange={page => setCurrentPage(page)}
+            /> */}
         </>
     );
 }
