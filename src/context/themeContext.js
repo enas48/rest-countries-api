@@ -6,7 +6,7 @@ export const ThemeContext = createContext({
 
 function getInitialState() {
   const theme = localStorage.getItem('theme')
-  return theme ? JSON.parse(theme) : 'flase'
+  return theme ? JSON.parse(theme) : JSON.parse('false')
 }
 
 const ThemeProvider = ({ children }) => {
