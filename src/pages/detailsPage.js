@@ -11,7 +11,7 @@ export default function DetailPage() {
     const { isDarkTheme } = useContext(ThemeContext);
 
     return (
-        <div id="detailsPage">
+        <div id="detailsPage" role="detailPage">
 
             <Link to={`/`}>
                 <span className={`flex items-center mb-10 gap-4 w-min  rounded-md py-2 px-8 shadow-lg text-[16px]

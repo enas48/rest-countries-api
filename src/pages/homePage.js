@@ -41,11 +41,11 @@ export default function HomePage() {
     }
     return (
         <>
-            <div className="flex justify-between items-center flex-wrap mb-5">
+            <div className="flex justify-between items-center flex-wrap mb-5" role="mainpage">
                 <Search searchCountry={onCountrySearch} />
                 <Filter filterCountry={onFilterCountry} />
             </div>
-            <div className="">
+            <div >
                 {filterCountries.length ? (
                     <div className="flex  gap-10 flex-wrap justify-between">
                         {filterCountries.map((country) => (

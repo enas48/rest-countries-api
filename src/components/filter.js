@@ -12,7 +12,7 @@ export default function Filter(props) {
     return (
         <div className='mb-5 relative font-semibold'>
             <button
-                id="all"
+
                 onClick={handleOpen}
                 className={`flex items-center gap-8  rounded-md p-4  shadow-md text-[16px]
                 ${isDarkTheme ? ' bg-[#2b3945]' : ' bg-white'} `} >
